@@ -27,6 +27,9 @@ function trackLinkClick(event) {
 }
 
 document.addEventListener('click', trackLinkClick);
+document.querySelectorAll('.faq details').forEach(item => {
+  item.addEventListener('toggle', () => { if (item.open) trackEvent('faq_open', { faq_question: item.dataset.question }); });
+});
 document.addEventListener('click', event => {
   if (event.target.closest('a.download')) document.querySelectorAll('.download-hint').forEach(hint => { hint.hidden = false; });
 });
