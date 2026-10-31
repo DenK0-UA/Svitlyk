@@ -27,6 +27,9 @@ function trackLinkClick(event) {
 }
 
 document.addEventListener('click', trackLinkClick);
+document.addEventListener('click', event => {
+  if (event.target.closest('a.download')) document.querySelectorAll('.download-hint').forEach(hint => { hint.hidden = false; });
+});
 document.addEventListener('auxclick', event => {
   if (event.button === 1) trackLinkClick(event);
 });

@@ -110,3 +110,4 @@ nav{gap:var(--space-8)}
 .reminder-caption p{font-style:normal}
 .download-action{justify-content:center}
 @media(max-width:800px){.nav-contact{display:none}.download-action{align-items:flex-start}}
+.download-note.download-hint,.download-action .download-note.download-hint{max-width:330px;font-size:10px;opacity:.85;animation:hint-in .4s ease}.download-hint span{white-space:nowrap}@keyframes hint-in{from{opacity:0}}
