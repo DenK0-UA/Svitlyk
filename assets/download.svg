@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="52" viewBox="0 0 320 52" role="img" aria-label="Завантажити для Windows">
+  <rect width="320" height="52" rx="13" fill="#ffcd35"/>
+  <path d="M27 16V31M21 25L27 31L33 25M19 36H35" fill="none" stroke="#202124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="49" y="32" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="600" fill="#202124">Завантажити для Windows</text>
+</svg>

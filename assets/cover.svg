@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="220" viewBox="0 0 960 220" role="img" aria-label="Світлик — графік відключень у вашому треї">
+  <rect width="960" height="220" rx="24" fill="#202124"/>
+  <g transform="translate(48 46) scale(3.8)">
+    <path d="M10 23C10 19 5 17 5 11C5-2 27-2 27 11C27 17 22 19 22 23Z" fill="#ffcd35"/>
+    <rect x="10" y="25" width="12" height="2.5" rx="1.25" fill="#ffcd35"/>
+    <rect x="11" y="29" width="10" height="2" rx="1" fill="#ffcd35"/>
+    <path d="M14 23V14C14 10 9 11 11 14C13 17 19 17 21 14C23 11 18 10 18 14V23" fill="none" stroke="#25282d" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="202" y="94" font-size="58" font-weight="600" fill="#f2f3f5">Світлик</text>
+    <text x="204" y="135" font-size="24" fill="#d5d9e1">Графік відключень у вашому треї</text>
+    <text x="204" y="176" font-size="16" fill="#a7adb8">КИЇВ ТА КИЇВСЬКА ОБЛАСТЬ</text>
+  </g>
+</svg>
