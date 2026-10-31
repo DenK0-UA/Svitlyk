@@ -112,3 +112,26 @@ nav{gap:var(--space-8)}
 @media(max-width:800px){.nav-contact{display:none}.download-action{align-items:flex-start}}
 .download-note.download-hint,.download-action .download-note.download-hint{max-width:330px;font-size:10px;opacity:.85;animation:hint-in .4s ease}.download-hint span{white-space:nowrap}@keyframes hint-in{from{opacity:0}}
 .faq{padding-block:var(--section-space)}.faq+.download-section{border-top:1px solid var(--line)}.faq-list{margin-top:var(--space-12);max-width:880px;border-top:1px solid var(--ink)}.faq details{border-bottom:1px solid var(--line)}.faq summary{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);min-height:44px;padding:var(--space-6) 0;font-size:19px;font-weight:600;letter-spacing:-.5px;line-height:1.4;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";flex-shrink:0;font-size:26px;font-weight:300;line-height:1;color:var(--muted);transition:transform .25s var(--ease)}.faq details[open] summary::after{transform:rotate(45deg)}.faq summary:hover{color:#8b6b00}.faq summary:focus-visible{outline:3px solid #927200;outline-offset:4px}.faq details p{max-width:680px;padding-bottom:var(--space-6);font-size:15px;line-height:1.8;color:var(--muted)}.faq .nowrap{white-space:nowrap}.faq code{font-family:Consolas,monospace;font-size:.92em;padding:1px 5px;border-radius:4px;background:#ebe8dc;overflow-wrap:anywhere}@media(max-width:800px){.faq-list{margin-top:var(--space-8)}.faq summary{padding:var(--space-4) 0;font-size:17px}}
+/* Windows-aligned type and the app's accent; the dark theme mirrors SvitlykStyle. */
+:root{--yellow:#ffcd35;color-scheme:light dark}
+body{font-family:"Segoe UI Variable Text","Segoe UI Variable","Segoe UI",Arial,sans-serif}
+.download{color:#222520}
+.section-title em,.reminder h2 em,.download-content h2 em{font-family:inherit;font-weight:400;font-style:italic;letter-spacing:inherit}
+@media(prefers-color-scheme:dark){
+:root{--paper:#202124;--ink:#f2f3f5;--muted:#a7adb8;--line:#3a3d44}
+.hero-description{color:var(--muted)}
+nav a:hover,.versions:hover,.faq summary:hover{color:var(--yellow)}
+button:focus-visible,a:focus-visible,.faq summary:focus-visible{outline-color:var(--yellow)}
+.status-dot{background:var(--yellow)}
+.desktop{border-color:#3a3d44;background-color:#2b2d32;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);box-shadow:none}
+.desktop-label{color:var(--muted)}.little-square{background:#5b616c}
+.taskbar{background:#26282c;border-color:#3a3d44}.taskbar-right{color:#f2f3f5}.windows-mark{color:#4cc2ff}
+.tray-bulb{background:#3a3d44}.tray-bulb:hover{background:#44474f}.tray-bulb svg{color:var(--yellow)}
+.demo-controls button{border-color:#5b616c}
+.step-number{color:#4a4e57}
+.reminder-section{background:#2a2820;border-color:#3d3a2a}
+.reminder .eyebrow{color:#d8b84a}.reminder-copy>p:not(.eyebrow){color:#c9c3a6}.reminder-caption{color:#a7a183}
+.text-button{border-color:var(--yellow)}
+.footer-right small{color:var(--muted)}
+.faq code{background:#2b2d32}
+}
