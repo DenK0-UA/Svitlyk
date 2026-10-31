@@ -92,14 +92,14 @@ stateSwitch.addEventListener('click', () => {
   isOff = !isOff;
   desktop.classList.toggle('is-off', isOff);
   stateSwitch.setAttribute('aria-pressed', String(isOff));
-  stateSwitch.querySelector('.button-label').textContent = isOff ? 'А коли світло є?' : 'А якщо світла немає?';
+  stateSwitch.querySelector('.button-label').textContent = isOff ? 'Показати зі світлом' : 'Показати без світла';
   document.querySelector('#demo-status').textContent = isOff ? 'Світла немає' : 'Світло є';
   document.querySelector('#demo-until').textContent = isOff ? 'До увімкнення' : 'До вимкнення';
   document.querySelector('#demo-hours').innerHTML = (isOff ? '3' : '1') + ' <small>год</small>';
   document.querySelector('#demo-next').textContent = isOff ? 'Поточне відключення' : 'Наступне відключення';
   document.querySelector('#system-clock').textContent = isOff ? '11:35' : '09:35';
   document.querySelector('#timeline-marker').style.left = isOff ? '48.3%' : '40%';
-  document.querySelector('#demo-note').textContent = isOff ? 'Сіра лампочка — за графіком зараз немає світла.' : 'Тут — приклад графіка. Свій знайдеш у застосунку за адресою.';
+  document.querySelector('#demo-note').textContent = isOff ? 'Сіра лампочка — за графіком зараз немає світла.' : 'Тут — приклад графіка. Свій графік побачиш у застосунку, коли вкажеш адресу.';
   setPopup(true);
   trackEvent('demo_interaction', { demo_action: 'state_change', demo_state: isOff ? 'off' : 'on' });
 });
