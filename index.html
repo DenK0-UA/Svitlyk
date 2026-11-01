@@ -55,8 +55,10 @@
             <h2 class="app-status"><i aria-hidden="true"></i><span id="demo-status">Світло є</span></h2>
             <p class="app-until" id="demo-until">До вимкнення</p>
             <p class="app-time"><span id="demo-hours">1 <small>год</small></span> <span id="demo-minutes">24 <small>хв</small></span> <span id="demo-seconds">36 с</span></p>
-            <div class="app-timeline" aria-hidden="true"><span class="timeline-marker" id="timeline-marker"></span></div>
-            <div class="timeline-hours" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>00</span></div>
+            <div class="app-timeline" id="demo-today" aria-hidden="true"><span class="timeline-off" style="left:45.83%;width:16.67%"></span><span class="timeline-off" style="left:79.17%;width:12.5%"></span><span class="timeline-past" id="timeline-past"></span><span class="timeline-marker" id="timeline-marker"></span></div>
+<div class="timeline-ticks" aria-hidden="true"></div>
+            <div class="timeline-hours" id="demo-today-label" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+<div class="timeline-tomorrow" aria-hidden="true"><div class="timeline-hours" id="demo-tomorrow-label"><span>Завтра, 01.11</span></div><div class="app-timeline is-thin" id="demo-tomorrow"><span class="timeline-off" style="left:29.17%;width:12.5%"></span></div></div>
             <div class="app-detail"><span id="demo-next">Наступне відключення</span><strong>11:00 — 15:00</strong></div>
             <div class="app-detail"><span>Потім світло є</span><span>15:00 — 19:00</span></div>
             <p class="app-source">Приклад графіка</p>
@@ -88,7 +90,7 @@
       <div class="steps">
         <article class="step reveal"><span class="step-number" aria-hidden="true">01</span><h3>Знайди свій будинок.</h3><p>Обери місто, вулицю й номер будинку. Світлик запам’ятає адресу.</p></article>
         <article class="step reveal"><span class="step-number" aria-hidden="true">02</span><h3>Зазирни в графік.</h3><p>Натисни на лампочку біля годинника Windows. Побачиш розклад і час до наступної зміни.</p></article>
-        <article class="step reveal"><span class="step-number" aria-hidden="true">03</span><h3>Займайся своїми справами.</h3><p>Світлик нагадає перед вимкненням і увімкненням. За скільки хвилин — обираєш у налаштуваннях.</p></article>
+        <article class="step reveal"><span class="step-number" aria-hidden="true">03</span><h3>Займайся своїми справами.</h3><p>Світлик нагадає перед вимкненням і увімкненням — за скільки хвилин, обираєш сам. І попередить, коли з’явиться графік на завтра або його змінять.</p></article>
       </div>
     </section>
 

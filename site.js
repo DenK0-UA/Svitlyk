@@ -102,6 +102,7 @@ stateSwitch.addEventListener('click', () => {
   document.querySelector('#demo-next').textContent = isOff ? 'Поточне відключення' : 'Наступне відключення';
   document.querySelector('#system-clock').textContent = isOff ? '11:35' : '09:35';
   document.querySelector('#timeline-marker').style.left = isOff ? '48.3%' : '40%';
+  document.querySelector('#timeline-past').style.width = isOff ? '48.3%' : '40%';
   document.querySelector('#demo-note').textContent = isOff ? 'Сіра лампочка — за графіком зараз немає світла.' : 'Тут — приклад графіка. Свій графік побачиш у застосунку, коли вкажеш адресу.';
   setPopup(true);
   trackEvent('demo_interaction', { demo_action: 'state_change', demo_state: isOff ? 'off' : 'on' });
@@ -148,3 +149,28 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
   observer.observe(notificationStage);
 }
+
+// The demo timeline answers a hover the same way the app does: the stretch's exact time replaces the labels.
+function hoverTimeline(trackId, labelId, prefix, outages) {
+  const track = document.querySelector(trackId);
+  const label = document.querySelector(labelId);
+  if (!track || !label) return;
+  const resting = label.innerHTML;
+  const clock = (hour) => String(Math.floor(hour) % 24).padStart(2, '0') + (hour % 1 ? ':30' : ':00');
+  track.addEventListener('mousemove', (event) => {
+    const box = track.getBoundingClientRect();
+    const hour = Math.min(23.99, Math.max(0, (event.clientX - box.left) / box.width * 24));
+    const edges = [0, ...outages.flat(), 24];
+    let i = 0;
+    while (edges[i + 1] <= hour) i++;
+    const off = i % 2 === 1;
+    label.classList.add('is-hover');
+    label.innerHTML = '<span>' + prefix + clock(edges[i]) + '–' + clock(edges[i + 1]) + ' · ' + (off ? 'без світла' : 'світло є') + '</span>';
+    const text = label.firstChild;
+    const center = (edges[i] + edges[i + 1]) / 48 * box.width;
+    text.style.marginLeft = Math.max(0, Math.min(box.width - text.offsetWidth, center - text.offsetWidth / 2)) + 'px';
+  });
+  track.addEventListener('mouseleave', () => { label.classList.remove('is-hover'); label.innerHTML = resting; });
+}
+hoverTimeline('#demo-today', '#demo-today-label', '', [[11, 15], [19, 22]]);
+hoverTimeline('#demo-tomorrow', '#demo-tomorrow-label', 'Завтра ', [[7, 10]]);
