@@ -180,7 +180,7 @@ button:focus-visible,a:focus-visible,.faq summary:focus-visible{outline-color:va
 #demo-today-label:not(.is-hover) span{display:flex;justify-content:center;width:0}
 #demo-today-label:not(.is-hover) span:first-child{justify-content:flex-start}
 #demo-today-label:not(.is-hover) span:last-child{justify-content:flex-end}
-.timeline-tomorrow{margin-top:calc(6*var(--u));padding-bottom:calc(7.35*var(--u))}
+.timeline-tomorrow{margin-top:calc(6*var(--u));padding-bottom:calc(16.35*var(--u))}
 #demo-tomorrow-label{margin-top:0}
 .app-detail{margin-top:calc(4*var(--u));height:calc(28*var(--u));gap:calc(8*var(--u));font-size:calc(17.5*var(--u));line-height:calc(24*var(--u))}
 .timeline-tomorrow+.app-detail{margin-top:calc(15*var(--u))}
@@ -197,3 +197,21 @@ button:focus-visible,a:focus-visible,.faq summary:focus-visible{outline-color:va
 .app-watch-rows i{justify-self:center;width:calc(6*var(--u));height:calc(6*var(--u));background:#737983}
 .watch-arrow{width:calc(8*var(--u));height:calc(10*var(--u));margin-left:calc(10*var(--u))}
 .is-off .app-status i{background:#737983}
+
+/* Privacy and terms pages. */
+.legal{max-width:760px;padding-block:var(--space-16) var(--section-space)}
+.legal .section-title{margin-top:var(--space-4)}
+.legal-lead{margin-top:var(--space-6);font-size:18px;line-height:1.7;color:var(--muted)}
+.legal-date{margin-top:var(--space-3);font-size:13px;color:var(--muted)}
+.legal h2{margin-top:var(--space-12);font-size:21px;font-weight:600;letter-spacing:-.4px;line-height:1.35}
+.legal p:not(.section-label):not(.legal-lead):not(.legal-date),.legal li{font-size:16px;line-height:1.75}
+.legal h2+p,.legal h2+ul{margin-top:var(--space-3)}
+.legal p+p,.legal ul+p{margin-top:var(--space-4)}
+.legal ul{padding-left:var(--space-6);margin:var(--space-3) 0 0}
+.legal li+li{margin-top:var(--space-3)}
+.legal p a,.legal li a{text-decoration:underline;text-underline-offset:3px}
+.legal code{font-family:Consolas,monospace;font-size:.92em;padding:1px 5px;border-radius:4px;background:#ebe8dc;overflow-wrap:anywhere}
+.footer-legal{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0 var(--space-1);margin-top:var(--space-3);font-size:13px}
+.footer-legal a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:800px){.legal{padding-top:var(--space-10)}.legal-lead{font-size:17px}.legal h2{margin-top:var(--space-10);font-size:19px}.footer-legal{justify-content:flex-start}}
+@media(prefers-color-scheme:dark){.legal code{background:#2b2d32}}

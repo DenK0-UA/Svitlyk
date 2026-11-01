@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3eb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#202124" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Які дані обробляють застосунок Світлик і його сайт.">
+  <link rel="canonical" href="https://denk0-ua.github.io/Svitlyk/privacy.html">
+  <title>Конфіденційність — Світлик</title>
+  <link rel="icon" href="assets/bulb.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN29BEMHQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LN29BEMHQQ');
+  </script>
+</head>
+<body>
+  <svg class="symbols" aria-hidden="true"><defs><symbol id="bulb" viewBox="0 0 32 32"><path d="M10 23C10 19 5 17 5 11C5-2 27-2 27 11C27 17 22 19 22 23Z" fill="currentColor"/><rect x="10" y="25" width="12" height="2.5" rx="1.25" fill="currentColor"/><rect x="11" y="29" width="10" height="2" rx="1" fill="currentColor"/><path d="M14 23V14C14 10 9 11 11 14C13 17 19 17 21 14C23 11 18 10 18 14V23" fill="none" stroke="var(--filament,#202124)" stroke-width="1.5" stroke-linecap="round"/></symbol><symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></symbol></defs></svg>
+  <a class="skip" href="#main">Перейти до змісту</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="Світлик — на головну"><svg aria-hidden="true"><use href="#bulb"/></svg><span>Світлик</span></a>
+    <nav aria-label="Основна навігація"><a href="./">На головну</a><a class="nav-download" href="https://github.com/DenK0-UA/Svitlyk/releases/latest/download/Svitlyk.exe">Завантажити</a></nav>
+  </header>
+  <main id="main" class="legal wrap">
+    <p class="section-label"><span>Конфіденційність</span></p>
+    <h1 class="section-title">Що Світлик знає про&nbsp;тебе</h1>
+    <p class="legal-lead">Коротко: акаунтів немає, статистики роботи застосунку немає, адреси й налаштування лишаються на твоєму комп’ютері. Сайт рахує відвідування через Google Analytics.</p>
+    <p class="legal-date">Оновлено 1 листопада 2026 року</p>
+
+    <h2>1. Хто відповідає</h2>
+    <p>Світлик і цей сайт робить DenK0_UA. Ця сторінка пояснює, які дані обробляють застосунок і сайт. З питаннями про дані пиши в Telegram: <a href="https://t.me/DenK0_UA" target="_blank" rel="noopener">@DenK0_UA</a>.</p>
+
+    <h2>2. Що зберігається на комп’ютері</h2>
+    <p>Світлик зберігає все в папці <code>%LOCALAPPDATA%\Svitlyk</code>: налаштування (основну та інші адреси, їхні назви, черги й параметри нагадувань), останні завантажені графіки, щоб показувати їх без інтернету, довідник вулиць, профіль вбудованого браузера й завантажені оновлення. Якщо ввімкнено запуск разом із Windows, у реєстрі є відповідний запис.</p>
+    <p>Ці дані нікуди не надсилаються. Щоб прибрати все, закрий Світлик, вимкни запуск разом із Windows у налаштуваннях, а потім видали <code>Svitlyk.exe</code> і папку вище.</p>
+
+    <h2>3. До яких сервісів звертається застосунок</h2>
+    <ul>
+      <li><strong>Графіки.</strong> Відкриті дані проєкту <a href="https://github.com/Baskerville42/outage-data-ua" target="_blank" rel="noopener">outage-data-ua</a> на GitHub, який збирає графіки ДТЕК. У запиті лише регіон, без твоєї адреси.</li>
+      <li><strong>Пошук адреси в Києві.</strong> Сервіс YASNO: туди йде текст, який ти вводиш у пошук, а потім обрані вулиця й будинок, щоб визначити чергу.</li>
+      <li><strong>Пошук адреси в Київській області.</strong> Сайт ДТЕК: туди йдуть населений пункт, вулиця й будинок. Інколи для цього Світлик відкриває сайт ДТЕК у вбудованому компоненті Microsoft Edge WebView2, і тоді ДТЕК може зберегти свої cookie в профілі Світлика.</li>
+      <li><strong>Оновлення.</strong> GitHub: перевірка нової версії та завантаження файла.</li>
+    </ul>
+    <p>Як і під час відкриття будь-якого сайту, ці сервіси бачать твою IP-адресу й технічні дані запиту. Вони обробляють їх за власними правилами.</p>
+
+    <h2>4. Сайт</h2>
+    <p>Сайт розміщено на GitHub Pages. GitHub отримує технічні дані запитів, зокрема IP-адресу, щоб показувати сторінки й захищати сервіс.</p>
+    <p>Сайт використовує Google Analytics 4, щоб розуміти, скільки людей заходить і що їм цікаво. Він ставить cookie і збирає дані про перегляди сторінок, приблизне місцезнаходження, пристрій і браузер, а також дії на сторінці: натискання на «Завантажити» та посилання, відкриття відповідей у питаннях, перегляд розділів і дії з прикладом панелі. Ці дані обробляє Google, зокрема за межами України. Вимкнути збір можна в налаштуваннях браузера, блокувальником або доповненням <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out</a>.</p>
+
+    <h2>5. Коли ти пишеш автору</h2>
+    <p>Якщо напишеш у Telegram, я отримаю те, що ти надішлеш, і дані твого профілю. Це потрібно лише для відповіді та виправлення помилок. Не надсилай паролі чи інші чутливі дані.</p>
+
+    <h2>6. Твої права</h2>
+    <p>Можеш запитати, які твої дані є в листуванні, попросити виправити або видалити їх. Дані на комп’ютері ти контролюєш сам. Даних, які Світлик ніде не зберігає, я не можу ні показати, ні видалити.</p>
+
+    <h2>7. Зміни</h2>
+    <p>Якщо щось зміниться в тому, як Світлик чи сайт працюють із даними, ця сторінка оновиться з новою датою.</p>
+  </main>
+  <footer class="footer wrap"><div><a class="brand" href="./"><svg aria-hidden="true"><use href="#bulb"/></svg><span>Світлик</span></a><p>Зроблено для тих, хто шукає щось корисне на Windows.</p></div><div class="footer-right"><a href="https://t.me/DenK0_UA" target="_blank" rel="noopener">Автор: DenK0_UA <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a><p class="footer-legal"><a href="privacy.html">Конфіденційність</a><span aria-hidden="true"> · </span><a href="terms.html">Умови використання</a></p></div></footer>
+</body>
+</html>
