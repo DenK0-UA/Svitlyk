@@ -174,3 +174,11 @@ function hoverTimeline(trackId, labelId, prefix, outages) {
 }
 hoverTimeline('#demo-today', '#demo-today-label', '', [[11, 15], [19, 22]]);
 hoverTimeline('#demo-tomorrow', '#demo-tomorrow-label', 'Завтра ', [[7, 10]]);
+
+// "Also watching" block folds and unfolds like in the app.
+const watch = document.querySelector('#demo-watch');
+const watchToggle = document.querySelector('#watch-toggle');
+watchToggle.addEventListener('click', () => {
+  const folded = watch.classList.toggle('is-folded');
+  watchToggle.setAttribute('aria-expanded', String(!folded));
+});
