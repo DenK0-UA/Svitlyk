@@ -153,3 +153,47 @@ button:focus-visible,a:focus-visible,.faq summary:focus-visible{outline-color:va
 .app-watch.is-folded .app-watch-rows{max-height:0}
 .app-watch.is-folded .watch-count{display:inline}
 .app-watch.is-folded .watch-chevron{transform:rotate(-90deg)}
+
+/* Demo panel drawn to the app's own layout (SvitlykStyle, 400 px panel at 125 % scale), shrunk to the demo width. */
+.desktop{container-type:inline-size}
+.app-popup{--u:calc(min(312px,100cqw)/400);--app-muted:#a7adb8;--app-line:#3a3d44;width:calc(400*var(--u));max-width:none;padding:calc(16*var(--u)) calc(24*var(--u)) calc(4*var(--u));border-color:var(--app-line);border-radius:calc(18*var(--u));background:#202124;color:#f2f3f5;font-family:"Segoe UI",Arial,sans-serif}
+.app-header{height:calc(40*var(--u));font-size:calc(17.5*var(--u))}
+.app-header>span:first-child{gap:calc(8*var(--u))}
+.app-header>span:first-child svg{width:calc(24*var(--u));height:calc(24*var(--u))}
+.app-icons{gap:calc(25.5*var(--u));margin-right:calc(8.75*var(--u))}
+.app-icons .icon{width:calc(22.5*var(--u));height:calc(22.5*var(--u))}
+.app-address{margin:calc(8*var(--u)) 0 0;height:calc(24*var(--u));font-size:calc(15*var(--u));line-height:calc(20*var(--u))}
+.app-status{margin-top:calc(12*var(--u));height:calc(40*var(--u));gap:0;font-size:calc(30*var(--u));font-weight:600;letter-spacing:0}
+.app-status i{width:calc(10*var(--u));height:calc(10*var(--u));margin:0 calc(9*var(--u)) 0 calc(5*var(--u))}
+.app-until{margin-top:calc(8*var(--u));height:calc(24*var(--u));font-size:calc(17.5*var(--u));font-weight:600;line-height:calc(24*var(--u))}
+.app-time{margin-top:calc(12*var(--u));height:calc(46.67*var(--u));gap:calc(8*var(--u));font-size:calc(46.67*var(--u));line-height:1;letter-spacing:0}
+.app-time small{font-size:inherit}
+.app-time #demo-minutes{font-size:calc(30*var(--u))}
+.app-time #demo-seconds{font-size:calc(17.5*var(--u))}
+.app-timeline{margin-top:calc(22.33*var(--u));height:calc(14*var(--u));border-radius:calc(6.5*var(--u))}
+.app-timeline.is-thin{margin-top:calc(2*var(--u));height:calc(7*var(--u));border-radius:calc(3*var(--u))}
+.timeline-off{background:repeating-linear-gradient(135deg,#767c86 0 2px,#484c54 2px 5.66px)}
+.timeline-past{border-radius:calc(6.5*var(--u)) 0 0 calc(6.5*var(--u));background:#20212496}
+.timeline-marker{top:calc(-5*var(--u));height:calc(24*var(--u));margin-left:-1px;background:#f2f3f5}
+.timeline-ticks{margin-top:calc(2*var(--u));height:calc(3*var(--u));clip-path:inset(0 1px 0 0)}
+.timeline-hours{margin-top:calc(2*var(--u));font-size:calc(15*var(--u));line-height:calc(21.8*var(--u))}
+#demo-today-label:not(.is-hover) span{display:flex;justify-content:center;width:0}
+#demo-today-label:not(.is-hover) span:first-child{justify-content:flex-start}
+#demo-today-label:not(.is-hover) span:last-child{justify-content:flex-end}
+.timeline-tomorrow{margin-top:calc(6*var(--u));padding-bottom:calc(7.35*var(--u))}
+#demo-tomorrow-label{margin-top:0}
+.app-detail{margin-top:calc(4*var(--u));height:calc(28*var(--u));gap:calc(8*var(--u));font-size:calc(17.5*var(--u));line-height:calc(24*var(--u))}
+.timeline-tomorrow+.app-detail{margin-top:calc(15*var(--u))}
+.app-source{margin-top:calc(16*var(--u));height:calc(24*var(--u));font-size:calc(15*var(--u));line-height:calc(20*var(--u));color:var(--app-muted)}
+.app-watch{margin-top:calc(16*var(--u));padding-top:0}
+.app-watch-head{height:calc(28*var(--u));margin:calc(6*var(--u)) 0 calc(2*var(--u));font-size:calc(15*var(--u))}
+.app-watch-head button{gap:0;height:calc(28*var(--u));padding:0;font-size:inherit}
+.watch-chevron{width:calc(16*var(--u));height:calc(16*var(--u));margin-left:calc(3*var(--u))}
+.app-watch-rows{max-height:calc(64*var(--u));margin-bottom:calc(4*var(--u));transition:max-height .2s var(--ease),margin-bottom .2s var(--ease)}
+.app-watch.is-folded .app-watch-rows{margin-bottom:0}
+.app-watch-rows li{grid-template-columns:calc(32*var(--u)) calc(112*var(--u)) 1fr calc(30*var(--u));gap:0;height:calc(32*var(--u));margin:0 calc(-8*var(--u));font-size:calc(15*var(--u));white-space:nowrap}
+.app-watch-rows b{overflow:hidden;text-overflow:ellipsis}
+.app-watch-rows span{justify-self:end}
+.app-watch-rows i{justify-self:center;width:calc(6*var(--u));height:calc(6*var(--u));background:#737983}
+.watch-arrow{width:calc(8*var(--u));height:calc(10*var(--u));margin-left:calc(10*var(--u))}
+.is-off .app-status i{background:#737983}
