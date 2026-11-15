@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131315" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Світлик — лампочка біля годинника на Mac: показує графік відключень вашого будинку, рахує час до зміни світла й нагадує заздалегідь. Київ і Київська область.">
+  <meta property="og:title" content="Світлик — світло є. А до котрої?">
+  <meta property="og:description" content="Графік відключень, час до зміни світла й нагадування. У рядку меню Mac.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://denk0-ua.github.io/Svitlyk/mac/">
+  <meta property="og:image" content="https://denk0-ua.github.io/Svitlyk/assets/mac-light.png">
+  <meta property="og:image:alt" content="Світлик у світлій і темній темі">
+  <link rel="canonical" href="https://denk0-ua.github.io/Svitlyk/mac/">
+  <title>Світлик для Mac — світло є. А до котрої?</title>
+  <link rel="icon" href="../assets/bulb.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/Zakon-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="mac.css">
+  <script>
+    // The visitor's system decides what the page shows, before anything is drawn.
+    (function () {
+      var platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+      var agent = navigator.userAgent || '';
+      var os = 'other';
+      if (/iPhone|iPad|iPod|Android/i.test(agent) || (navigator.maxTouchPoints > 1 && /Mac/i.test(platform))) os = 'other';
+      else if (/Mac/i.test(platform) || /Mac OS X/i.test(agent)) os = 'mac';
+      else if (/Win/i.test(platform) || /Windows/i.test(agent)) os = 'win';
+      // The Mac page always shows the Mac; a Windows visitor also gets a pointer to the Windows page.
+      document.documentElement.dataset.visitor = os;
+      document.documentElement.dataset.os = os === 'other' ? 'other' : 'mac';
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN29BEMHQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LN29BEMHQQ');
+  </script>
+  <script src="mac.js" defer></script>
+</head>
+<body>
+  <svg class="symbols" aria-hidden="true"><defs>
+    <symbol id="bulb" viewBox="0 0 32 32"><path d="M10 23C10 19 5 17 5 11C5-2 27-2 27 11C27 17 22 19 22 23Z" fill="currentColor"/><rect x="10" y="25" width="12" height="2.5" rx="1.25" fill="currentColor"/><rect x="11" y="29" width="10" height="2" rx="1" fill="currentColor"/><path d="M14 23V14C14 10 9 11 11 14C13 17 19 17 21 14C23 11 18 10 18 14V23" fill="none" stroke="var(--filament,#000)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M12 3v15m-6-6 6 6 6-6M4 21h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="icon-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5v6h-6M4 19v-6h6M5.8 8a7 7 0 0 1 11.6-3L20 8M4 16l2.6 3A7 7 0 0 0 18.2 16"/></symbol>
+    <symbol id="icon-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 17h18"/><circle cx="9" cy="7" r="3" fill="var(--app)"/><circle cx="16" cy="17" r="3" fill="var(--app)"/></symbol>
+    <symbol id="app-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.07 8A8 8 0 0 1 19.73 9.93M20 3v7h-7M18.93 16A8 8 0 0 1 4.27 14.07M4 21v-7h7"/></symbol>
+  </defs></svg>
+  <a class="skip" href="#main">Перейти до змісту</a>
+
+  <p class="other-os is-win">У вас Windows? <a href="../" data-analytics="navigation_click" data-location="banner" data-target="windows">Світлик для Windows — тут</a></p>
+  <main id="main">
+    <section class="hero" data-section="hero" aria-labelledby="hero-title">
+      <header class="header">
+        <a class="brand" href="#" data-analytics="navigation_click" data-location="header" data-target="top" aria-label="Світлик — на початок"><svg aria-hidden="true"><use href="#bulb"/></svg><span>Світлик</span></a>
+        <nav aria-label="Основна навігація">
+          <a class="nav-other" href="../" data-analytics="navigation_click" data-location="header" data-target="windows">Для Windows</a>
+          <a href="#app" data-analytics="navigation_click" data-location="header" data-target="app">Як виглядає</a>
+          <a href="#install" data-analytics="navigation_click" data-location="header" data-target="install">Як встановити</a>
+          <a href="#faq" data-analytics="navigation_click" data-location="header" data-target="faq">Питання</a>
+          <a class="nav-download" href="#download" data-analytics="navigation_click" data-location="header" data-target="download">Завантажити</a>
+        </nav>
+      </header>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <img class="app-icon-img" src="../assets/app-icon.png" width="88" height="88" alt="">
+          <h1 id="hero-title">Світло є.<br><span class="nowrap">А до котрої?</span></h1>
+          <p class="lead">Світлик — лампочка біля годинника<span class="only-win only-pc"> на панелі завдань Windows</span><span class="only-mac only-pc"> у рядку меню Mac</span>. Знає графік відключень вашого будинку, рахує, скільки лишилось до зміни світла, і нагадує заздалегідь.</p>
+          <div class="get" data-get="hero">
+            <a class="download only-win" data-platform="win" data-analytics="download_click" data-location="hero" data-file="Svitlyk.exe" href="https://github.com/DenK0-UA/Svitlyk/releases/latest/download/Svitlyk.exe"><svg aria-hidden="true"><use href="#arrow"/></svg><span>Завантажити для Windows</span></a>
+            <a class="download only-mac" data-platform="mac" data-analytics="download_click" data-location="hero" data-file="Svitlyk-macOS-1.0.0.zip" href="https://github.com/DenK0-UA/Svitlyk/releases/download/macos-v1.0.0/Svitlyk-macOS-1.0.0.zip"><svg aria-hidden="true"><use href="#arrow"/></svg><span>Завантажити для Mac</span></a>
+          </div>
+          <p class="get-note only-win only-pc">Windows 10 і 11. <a href="#install" data-analytics="navigation_click" data-location="hero" data-target="install">Як встановити</a></p>
+          <p class="get-note only-mac">Mac з M1 і новішими, macOS 26 і новіша. <a href="#install" data-analytics="navigation_click" data-location="hero" data-target="install">Як встановити</a></p>
+        </div>
+
+        <div class="mac-demo only-mac only-pc" data-light="on">
+          <div class="mac-screen" id="mac-screen">
+            <div class="menubar">
+              <span class="mb-left" aria-hidden="true"><svg viewBox="0 0 14 17" class="apple"><path d="M11.6 9c0-2 1.6-2.9 1.7-3a3.7 3.7 0 0 0-2.9-1.6c-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7A3.9 3.9 0 0 0 1.5 6.4c-1.4 2.4-.4 6 1 8 .7 1 1.5 2 2.5 2s1.4-.6 2.6-.6 1.5.6 2.6.6 1.7-1 2.4-2a8 8 0 0 0 1.1-2.2A3.4 3.4 0 0 1 11.6 9ZM9.6 3A3.4 3.4 0 0 0 10.4.5 3.5 3.5 0 0 0 8.1 1.7 3.2 3.2 0 0 0 7.3 4.1 2.9 2.9 0 0 0 9.6 3Z" fill="currentColor"/></svg><b>Finder</b><span>Файл</span><span>Правка</span><span>Вигляд</span></span>
+              <span class="mb-right">
+                <button class="mb-bulb" id="mac-bulb" type="button" aria-expanded="true" aria-controls="mac-panel" aria-label="Сховати приклад Світлика"><svg aria-hidden="true"><use href="#bulb"/></svg></button>
+                <svg class="mb-icon" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 4a10 10 0 0 1 14 0M3.5 6.5a6.4 6.4 0 0 1 9 0M6 9a2.8 2.8 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg class="mb-icon" viewBox="0 0 26 12" aria-hidden="true"><rect x=".75" y=".75" width="21.5" height="10.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.6" fill="currentColor"/><path d="M24 4.2v3.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".6"/></svg>
+                <time id="mac-clock" aria-hidden="true">Пн 16 лист. 12:33</time>
+              </span>
+            </div>
+            <div class="mac-panel" id="mac-panel" role="region" aria-label="Інтерактивний приклад Світлика на Mac">
+              <div class="mp-head">
+                <div><p><b>Основна адреса</b> <span>Черга 4.2</span></p><p class="mp-address">Київ, вул. Хрещатик, 22</p></div>
+                <span class="mp-icons" aria-hidden="true"><svg><use href="#app-refresh"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              </div>
+              <div class="mp-hero">
+                <div>
+                  <p class="mp-title" data-mac="title">Світло є</p>
+                  <p class="mp-count"><b data-mac="h">3</b><span>год</span><b data-mac="m">27</b><span class="mp-min">хв</span><small data-mac="s">00 с</small></p>
+                  <p class="mp-caption" data-mac="caption">До вимкнення о 16:00</p>
+                </div>
+                <svg class="mp-bulb" aria-hidden="true"><use href="#bulb"/></svg>
+              </div>
+              <div class="mp-card">
+                <p class="mp-card-title"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="2" width="10" height="9" rx="1.5" fill="none" stroke="currentColor"/><path d="M1 4.5h10M3.5 1v2M8.5 1v2" stroke="currentColor"/></svg>Графік на сьогодні</p>
+                <div class="mp-pills" data-mac="pills"></div>
+                <div class="mp-times" aria-hidden="true"><span style="left:29.2%">07:00</span><span style="left:43.75%">10:30</span><span style="left:66.7%">16:00</span><span style="left:81.25%">19:30</span></div>
+                <div class="mp-tomorrow"><i class="on" style="left:0;width:16.7%"></i><i class="off" style="left:16.7%;width:14.6%"></i><i class="on" style="left:31.3%;width:16.6%"></i><i class="off" style="left:47.9%;width:20.9%"></i><i class="on" style="left:68.8%;width:12.5%"></i><i class="off" style="left:81.3%;width:18.7%"></i></div>
+                <p class="mp-small">Завтра, 17.11</p>
+                <p class="mp-next"><span data-mac="next-label">Наступне вимкнення</span><b data-mac="next">16:00 — 19:30 · 3 год 30 хв</b></p>
+              </div>
+              <div class="mp-card mp-station">
+                <p class="mp-card-title"><svg viewBox="0 0 14 12" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" fill="none" stroke="currentColor"/><path d="M4 3V1.5M10 3V1.5M4.5 7h2M8 7h2M9 6v2" stroke="currentColor"/></svg>Станція EcoFlow</p>
+                <p class="mp-row"><b data-mac="source">Від мережі</b><b class="mp-volt" data-mac="volt">229 В</b></p>
+                <p class="mp-row"><span>Заряд</span><b data-mac="soc">86%</b></p>
+                <div class="mp-charge"><i data-mac="soc-bar"></i></div>
+                <p class="mp-row"><span data-mac="row1">До повного заряду</span><span data-mac="row1v">18 хв</span></p>
+                <p class="mp-row"><span data-mac="row2">Бере з мережі</span><span data-mac="row2v">900 Вт</span></p>
+              </div>
+              <div class="mp-card">
+                <p class="mp-card-title mp-watch-title"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 5.5 6 1.5l4.5 4V11h-9Z" fill="none" stroke="currentColor"/></svg>Стежу також<span class="mp-plus" aria-hidden="true">+</span></p>
+                <p class="mp-watch"><b>Батьки</b><span><svg><use href="#bulb"/></svg>Світло є до 08:30 завтра</span></p>
+                <p class="mp-watch"><b>Робота</b><span class="is-off"><svg><use href="#bulb"/></svg>Без світла до 23:30</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="demo-controls"><span class="micro">Натисніть на лампочку</span><button type="button" id="mac-switch" aria-pressed="false"><span class="button-label">Показати без світла</span><svg class="icon" aria-hidden="true"><use href="#icon-swap"/></svg></button></div>
+          <p class="demo-note">Це приклад. Свій графік побачите в застосунку, коли введете адресу.</p>
+        </div>
+        <div class="hero-demo win-demo only-win only-pc">
+        <div class="demo-heading"><span class="micro">Лампочка біля годинника</span></div>
+        <div class="desktop" id="desktop">
+          <div class="desktop-label"><span class="little-square"></span> Робочий стіл Windows</div>
+          <div class="app-popup is-open" id="app-popup" role="region" aria-label="Інтерактивний приклад Світлика">
+            <div class="app-header"><span><svg aria-hidden="true"><use href="#bulb"/></svg> Світлик</span><span class="app-icons" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#app-refresh"/></svg><svg class="icon" aria-hidden="true"><use href="#icon-sliders"/></svg></span></div>
+            <div class="app-address"><span>Київська область</span><span>Черга 4.2</span></div>
+            <h2 class="app-status"><i aria-hidden="true"></i><span id="demo-status">Світло є</span></h2>
+            <p class="app-until" id="demo-until">До вимкнення</p>
+            <p class="app-time"><span id="demo-hours">1 <small>год</small></span> <span id="demo-minutes">24 <small>хв</small></span> <span id="demo-seconds">36 с</span></p>
+            <div class="app-timeline" id="demo-today" aria-hidden="true"><span class="timeline-off" style="left:45.83%;width:16.67%"></span><span class="timeline-off" style="left:79.17%;width:12.5%"></span><span class="timeline-past" id="timeline-past"></span><span class="timeline-marker" id="timeline-marker"></span></div>
+<div class="timeline-ticks" aria-hidden="true"></div>
+            <div class="timeline-hours" id="demo-today-label" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+<div class="timeline-tomorrow" aria-hidden="true"><div class="timeline-hours" id="demo-tomorrow-label"><span>Завтра, 01.11</span></div><div class="app-timeline is-thin" id="demo-tomorrow"><span class="timeline-off" style="left:29.17%;width:12.5%"></span></div></div>
+            <div class="app-detail"><span id="demo-next">Наступне відключення</span><strong>11:00 — 15:00</strong></div>
+            <div class="app-detail"><span>Потім світло є</span><span>15:00 — 19:00</span></div>
+            <div class="app-watch" id="demo-watch"><div class="app-watch-head"><button type="button" id="watch-toggle" aria-expanded="true" aria-controls="watch-rows">Стежу також<span class="watch-count"> · 2</span><svg class="watch-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="app-watch-add">+ Додати</span></div><ul class="app-watch-rows" id="watch-rows"><li><i class="is-on" aria-hidden="true"></i><b>Мама</b><span>Світло є до 18:00</span><svg class="watch-arrow" viewBox="0 0 8 10" aria-hidden="true"><path d="M2.25 1.5 5.75 5 2.25 8.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></li><li><i aria-hidden="true"></i><b>Дача</b><span>Без світла до 21:30</span><svg class="watch-arrow" viewBox="0 0 8 10" aria-hidden="true"><path d="M2.25 1.5 5.75 5 2.25 8.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></li></ul></div>
+          </div>
+          <div class="taskbar">
+            <svg class="windows-mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M1 1h8v8H1zm10 0h8v8h-8zM1 11h8v8H1zm10 0h8v8h-8z" fill="currentColor"/></svg>
+            <div class="taskbar-right">
+              <svg class="tray-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 10 4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <button class="tray-bulb" id="tray-button" type="button" aria-expanded="true" aria-controls="app-popup" aria-describedby="tray-instruction" aria-label="Сховати приклад Світлика"><svg aria-hidden="true"><use href="#bulb"/></svg></button>
+              <span class="system-language" aria-hidden="true">УКР</span>
+              <span class="system-icons" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M1.5 5.5a10 10 0 0 1 13 0M4 8a6 6 0 0 1 8 0m-5.5 2.5a2.5 2.5 0 0 1 3 0"/><circle cx="8" cy="13" r=".7" fill="currentColor" stroke="none"/></svg>
+                <svg viewBox="0 0 18 16"><path d="M2 6h3l4-3v10l-4-3H2V6Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10"/></svg>
+                <svg class="battery-icon" viewBox="0 0 24 16"><rect x="1.5" y="3.5" width="18" height="9" rx="2"/><path d="M22 6v4" stroke-width="2"/><rect x="4" y="6" width="12" height="4" rx=".6" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <span class="clock-block"><time class="system-clock" id="system-clock">09:35</time><span class="system-date">31.10.2026</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-controls"><span class="micro" id="tray-instruction">Натисни на лампочку</span><button type="button" id="state-switch" aria-pressed="false"><span class="button-label">Показати без світла</span><svg class="icon" aria-hidden="true"><use href="#icon-swap"/></svg></button></div>
+        <p class="demo-note" id="demo-note" aria-live="polite">Тут — приклад графіка. Свій графік побачиш у застосунку, коли вкажеш адресу.</p>
+      </div>
+        <div class="phone-shots only-phone"><img src="../assets/mac-light.png" width="744" height="1324" alt="Світлик на Mac: світло є, відлік і графік." loading="lazy"></div>
+      </div>
+
+      <a class="next" href="#app" data-analytics="navigation_click" data-location="hero" data-target="app">Як це виглядає на вашому комп’ютері <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+    </section>
+
+    <section class="app" id="app" data-section="app" aria-labelledby="app-title">
+      <h2 id="app-title">Так Світлик виглядає на Mac.</h2>
+      <p class="app-lead">Натисніть на лампочку у верхньому рядку меню — і відкриється панель: стан світла, відлік, графік на сьогодні й завтра, ваші адреси.</p>
+      <div class="shots">
+        <figure class="shot only-win"><img src="../assets/preview.png" width="864" height="512" alt="Світлик на Windows у темній і світлій темі: стан світла, відлік і графік на добу." loading="lazy"><figcaption class="only-phone">Windows</figcaption></figure>
+        <figure class="shot shot-mac only-mac">
+          <div class="mac-pair">
+            <img src="../assets/mac-light.png" width="744" height="1324" alt="Світлик на Mac у світлій темі: світло є, станція заряджається." loading="lazy">
+            <img src="../assets/mac-dark.png" width="744" height="1284" alt="Світлик на Mac у темній темі: світла немає, станція живить квартиру." loading="lazy">
+          </div>
+          <figcaption class="only-phone">Mac</figcaption>
+        </figure>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div class="row-text"><h3>Скільки ще — видно одразу.</h3><p>Великий відлік до вимкнення або до ввімкнення світла. Не треба рахувати по графіку: Світлик робить це сам і оновлює щосекунди.</p></div>
+          <div class="row-art mac-demo" aria-hidden="true"><div class="mac-panel art-panel"><div class="mp-hero"><div><p class="mp-title">Світло є</p><p class="mp-count"><b>3</b><span>год</span><b>26</b><span class="mp-min">хв</span><small>57 с</small></p><p class="mp-caption">До вимкнення о 16:00</p></div><svg class="mp-bulb"><use href="#bulb"/></svg></div></div></div>
+        </div>
+        <div class="row">
+          <div class="row-text"><h3>Графік на сьогодні й завтра.</h3><p>Уся доба зрозумілою шкалою: коли світло є, коли немає і скільки триває кожне вікно. Щойно ДТЕК опублікує графік на завтра — він теж з’явиться.</p></div>
+          <div class="row-art mac-demo" aria-hidden="true"><div class="mac-panel art-panel"><div class="mp-card" style="margin:0"><p class="mp-card-title">Графік на сьогодні</p><div class="mp-pills"><i class="on" style="--d:7">7 год</i><i class="off" style="--d:3.5">3,5 год</i><i class="on is-now" style="--d:5.5">5,5 год</i><i class="off" style="--d:3.5">3,5 год</i><i class="on" style="--d:4.5">4,5 год</i></div><div class="mp-times"><span style="left:29.2%">07:00</span><span style="left:43.75%">10:30</span><span style="left:66.7%">16:00</span><span style="left:81.25%">19:30</span></div><div class="mp-tomorrow"><i class="on" style="left:0;width:16.7%"></i><i class="on" style="left:31.3%;width:16.6%"></i><i class="on" style="left:68.8%;width:12.5%"></i></div><p class="mp-small">Завтра, 17.11</p><p class="mp-next"><span>Наступне вимкнення</span><b>16:00 — 19:30 · 3 год 30 хв</b></p></div></div></div>
+        </div>
+        <div class="row">
+          <div class="row-text"><h3>Нагадає заздалегідь.</h3><p>За 5–60 хвилин до вимкнення — встигнете зберегти роботу й зарядити техніку. І перед ввімкненням, щоб знати, коли повернеться світло.</p></div>
+          <div class="row-art" aria-hidden="true"><div class="toast-art"><img src="../assets/app-icon.png" alt="" width="38" height="38"><div><b>Вимкнення за графіком о 16:00</b><span>Через 15 хв. Саме час зарядити важливе.</span></div><time>зараз</time></div></div>
+        </div>
+        <div class="row">
+          <div class="row-text"><h3>Ваш будинок, не лише черга.</h3><p>Світлик перевіряє на сайті ДТЕК саме вашу адресу. Якщо там внесли аварійне чи екстрене відключення, покаже його й орієнтовний час відновлення.</p></div>
+          <div class="row-art" aria-hidden="true"><div class="toast-art"><img src="../assets/app-icon.png" alt="" width="38" height="38"><div><b>Відключення на будинку</b><span>Аварійне відключення орієнтовно до 18:30.</span></div><time>14:05</time></div></div>
+        </div>
+        <div class="row">
+          <div class="row-text"><h3>Стежте й за рідними.</h3><p>Додайте адресу батьків, офісу чи дачі — їхній стан буде в тій самій панелі, а нагадування для кожної вмикаються окремо.</p></div>
+          <div class="row-art mac-demo" aria-hidden="true"><div class="mac-panel art-panel"><div class="mp-card" style="margin:0"><p class="mp-card-title mp-watch-title">Стежу також<span class="mp-plus">+</span></p><p class="mp-watch"><b>Батьки</b><span><svg><use href="#bulb"/></svg>Світло є до 08:30 завтра</span></p><p class="mp-watch"><b>Робота</b><span class="is-off"><svg><use href="#bulb"/></svg>Без світла до 23:30</span></p><p class="mp-watch"><b>Дача</b><span><svg><use href="#bulb"/></svg>Світло є до 21:00</span></p></div></div></div>
+        </div>
+        <div class="row only-mac">
+          <div class="row-text"><h3>Бачить вашу станцію EcoFlow.</h3><p>Через Bluetooth, без інтернету: чи світло справді є, заряд, напругу в мережі й на скільки вистачить батареї. Зникло світло — повідомить одразу, навіть якщо ДТЕК ще мовчить.</p></div>
+          <div class="row-art mac-demo" aria-hidden="true"><div class="mac-panel art-panel"><div class="mp-card mp-station" style="margin:0"><p class="mp-card-title">Станція EcoFlow</p><p class="mp-row"><b>Від батареї</b><b class="mp-volt">230 В</b></p><p class="mp-row"><span>Заряд</span><b>64%</b></p><div class="mp-charge"><i style="width:64%"></i></div><p class="mp-row"><span>Вистачить приблизно на</span><span>5 год 40 хв</span></p><p class="mp-row"><span>Навантаження</span><span>320 Вт</span></p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="install" id="install" data-section="install" aria-labelledby="install-title">
+      <h2 id="install-title">Як встановити</h2>
+      <p class="install-lead">Кілька хвилин, навіть якщо ви робите таке вперше.</p>
+
+      <div class="steps only-mac">
+        
+        <ol>
+          <li><div><h4>Завантажте Світлик</h4><p>Натисніть «Завантажити для Mac». Браузер збереже файл <b>Svitlyk-macOS-1.0.0.zip</b> у папку «Завантаження».</p></div></li>
+          <li><div><h4>Перенесіть Світлик у «Програми»</h4><p>Відкрийте «Завантаження» і двічі клацніть ZIP — поруч з’явиться Світлик. Перетягніть його в папку <b>«Програми»</b> в лівій колонці вікна Finder.</p></div>
+            <figure class="art art-finder" aria-hidden="true"><div class="finder-side"><span>Обрані</span><span>Завантаження</span><span class="is-target">Програми</span><span>Документи</span></div><div class="finder-main"><svg class="app-icon"><use href="#bulb"/></svg><span>Svitlyk</span><i class="drag"></i></div></figure></li>
+          <li><div><h4>Відкрийте Термінал</h4><p>Натисніть <kbd>⌘</kbd> і <kbd>Пробіл</kbd> разом, надрукуйте <b>Термінал</b> і натисніть <kbd>Enter</kbd>. Відкриється вікно для команд — потрібна буде лише одна.</p></div></li>
+          <li><div><h4>Вставте команду й натисніть Enter</h4><p>Скопіюйте її кнопкою, вставте в Термінал (<kbd>⌘</kbd> <kbd>V</kbd>) і натисніть <kbd>Enter</kbd>. Пароль не потрібен.</p>
+            <div class="command"><code id="mac-command">xattr -dr com.apple.quarantine "/Applications/Svitlyk.app" &amp;&amp; open "/Applications/Svitlyk.app"</code><button type="button" class="copy" data-copy="#mac-command">Скопіювати</button></div>
+            <p class="why">Навіщо це: Світлик ще не має платного підпису Apple, тому macOS не відкриває його одразу. Команда знімає це обмеження лише зі Світлика й запускає його. Робиться один раз — нові версії Світлик встановить сам.</p></div></li>
+          <li><div><h4>Введіть адресу</h4><p>Угорі праворуч, біля годинника, з’явиться лампочка. Натисніть на неї, введіть свою адресу — і готово.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="steps only-win">
+        <h3 class="only-phone">На Windows</h3>
+        <ol>
+          <li><div><h4>Завантажте Світлик</h4><p>Натисніть «Завантажити для Windows». Браузер збереже файл <b>Svitlyk.exe</b> у папку «Завантаження».</p></div></li>
+          <li><div><h4>Перенесіть файл у постійну папку</h4><p>Наприклад, у «Документи». Тільки не в Program Files — звідти Світлик не зможе оновлюватися.</p></div></li>
+          <li><div><h4>Запустіть Світлик</h4><p>Двічі клацніть файл. Якщо з’явиться синє вікно «Windows захистив ваш ПК», натисніть <b>«Докладніше»</b>, а потім <b>«Виконати все одно»</b>. Так Windows поводиться з усіма новими програмами без платного підпису.</p></div>
+            <figure class="art art-smartscreen" aria-hidden="true"><b>Windows захистив ваш ПК</b><span>Фільтр Microsoft Defender SmartScreen запобіг запуску невідомої програми…</span><u>Докладніше</u><i>Виконати все одно</i></figure></li>
+          <li><div><h4>Знайдіть лампочку</h4><p>Вона з’явиться біля годинника внизу праворуч. Якщо її не видно — натисніть стрілку <kbd>^</kbd> біля годинника й перетягніть лампочку на панель завдань.</p></div></li>
+          <li><div><h4>Введіть адресу</h4><p>Натисніть на лампочку, введіть свою адресу — і готово. Нові версії Світлик встановлюватиме сам.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" data-section="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Часті питання</h2>
+      <div class="faq-list">
+        <details data-question="source"><summary>Звідки графік і наскільки він точний?</summary><p>Із відкритих даних ДТЕК — того самого джерела, що й приклад угорі сторінки. Щойно опублікують графік на завтра, Світлик покаже і його. Ще він перевіряє на сайті ДТЕК саме ваш будинок: якщо там внесли аварійне відключення, покаже його й орієнтовний час відновлення. Насправді світло часто вмикають на кілька хвилин пізніше, ніж за графіком.</p></details>
+        <details data-question="queue"><summary>Як дізнатися свою чергу?</summary><p>У Світлику просто введіть адресу — чергу він знайде сам.</p></details>
+        <details data-question="regions"><summary>Які міста підтримуються?</summary><p>Поки Київ і Київська область. Інші області з’являться згодом.</p></details>
+        <details data-question="internet"><summary>Потрібен інтернет?</summary><p>Щоб оновлювати графік — так. Якщо мережа зникла, Світлик покаже останній відомий графік і чесно позначить, станом на котру він годину.</p></details>
+        <details class="only-win" data-question="smartscreen"><summary>Windows пише «Windows захистив ваш ПК». Це безпечно?</summary><p>Так. Windows показує це вікно для нових програм без платного підпису видавця. Натисніть <span class="nowrap">«Докладніше» → «Виконати все одно»</span>.</p></details>
+        <details class="only-win" data-question="tray"><summary>Не бачу лампочку біля годинника.</summary><p>Windows ховає нові значки під стрілку <span class="nowrap">«^»</span> біля годинника — лампочка там. Перетягніть її на панель завдань, і вона завжди буде на видноті.</p></details>
+        <details class="only-mac" data-question="mac-install"><summary>Навіщо команда в Терміналі?</summary><p>Світлик ще не має платного підпису Apple, тому macOS спершу не дає його відкрити. Одна команда знімає це обмеження лише зі Світлика — <a href="#install" data-analytics="navigation_click" data-location="faq" data-target="install">ось покроково</a>. Це треба зробити один раз: нові версії Світлик встановить сам.</p></details>
+        <details class="only-mac" data-question="mac-intel"><summary>Чи працює на Маках з Intel?</summary><p>Поки ні: потрібен Mac з M1 або новішим процесором і macOS 26 чи новіша.</p></details>
+        <details class="only-mac" data-question="station"><summary>Які зарядні станції бачить Світлик?</summary><p>Поки EcoFlow Delta 2 Max, на Mac. Світлик під’єднується до станції через Bluetooth, тож Mac має бути поруч і не спати. Підтримка експериментальна.</p></details>
+        <details data-question="remove"><summary>Як видалити Світлик?</summary><p>Вимкніть автозапуск у налаштуваннях і закрийте Світлик. На Windows видаліть <code>Svitlyk.exe</code> і папку <code>%LOCALAPPDATA%\Svitlyk</code>, на Mac — Світлик із «Програм» і папку <code>~/Library/Application Support/Svitlyk</code>.</p></details>
+      </div>
+    </section>
+
+    <section class="final" id="download" data-section="download" aria-labelledby="download-title">
+      <h2 id="download-title">Нехай графік буде поруч.</h2>
+      <p>Завантажте Світлик, запустіть і введіть свою адресу. Далі він працює сам.</p>
+      <div class="get" data-get="download">
+        <a class="download only-win" data-platform="win" data-analytics="download_click" data-location="download" data-file="Svitlyk.exe" href="https://github.com/DenK0-UA/Svitlyk/releases/latest/download/Svitlyk.exe"><svg aria-hidden="true"><use href="#arrow"/></svg><span>Завантажити для Windows</span></a>
+        <a class="download only-mac" data-platform="mac" data-analytics="download_click" data-location="download" data-file="Svitlyk-macOS-1.0.0.zip" href="https://github.com/DenK0-UA/Svitlyk/releases/download/macos-v1.0.0/Svitlyk-macOS-1.0.0.zip"><svg aria-hidden="true"><use href="#arrow"/></svg><span>Завантажити для Mac</span></a>
+      </div>
+      <p class="hint" hidden data-hint="win">Windows попередив? Натисніть «Докладніше» → «Виконати все одно».</p>
+      <p class="hint" hidden data-hint="mac">Далі: перетягніть Світлик у «Програми» й виконайте одну команду — <a href="#install" data-analytics="navigation_click" data-location="download" data-target="install">ось як</a>.</p>
+      <a class="versions" href="https://github.com/DenK0-UA/Svitlyk/releases" data-analytics="releases_click" data-location="download">Усі версії та зміни</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><a class="brand" href="#" data-analytics="navigation_click" data-location="footer" data-target="top"><svg aria-hidden="true"><use href="#bulb"/></svg><span>Світлик</span></a><p>Є також <a href="../" data-analytics="navigation_click" data-location="footer" data-target="windows">версія для Windows</a>.</p></div>
+    <div class="footer-right">
+      <a data-analytics="contact_click" data-location="footer" href="https://t.me/DenK0_UA" target="_blank" rel="noopener">Написати автору в Telegram <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a>
+      <small>Світлик показує плановий графік і повідомлення ДТЕК. Фактичні відключення можуть відрізнятися.</small>
+      <p class="legal"><a href="privacy.html">Конфіденційність</a> <a href="terms.html">Умови використання</a></p>
+    </div>
+  </footer>
+</body>
+</html>

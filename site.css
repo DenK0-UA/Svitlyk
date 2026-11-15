@@ -214,3 +214,7 @@ button:focus-visible,a:focus-visible,.faq summary:focus-visible{outline-color:va
 .footer-legal a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:800px){.legal{padding-top:var(--space-10)}.legal-lead{font-size:17px}.legal h2{margin-top:var(--space-10);font-size:19px}.footer-legal{justify-content:flex-start}}
 @media(prefers-color-scheme:dark){.legal code{background:#2b2d32}}
+
+.other-os{margin:0;padding:10px 16px;text-align:center;font-size:14px;background:var(--yellow);color:#222520}.other-os a{font-weight:600;text-decoration:underline;text-underline-offset:3px}.mac-link{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:560px){.nav-how{display:none}}
