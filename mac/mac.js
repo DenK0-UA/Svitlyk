@@ -177,3 +177,32 @@ document.querySelectorAll('.copy').forEach(button => {
   });
 });
 
+// The Mac download follows the newest public Mac release, picked the same way the app picks its update:
+// the highest Svitlyk-macOS-X.Y.Z.zip in a published, non-prerelease release. The link written in the
+// page stays as the fallback when GitHub doesn't answer.
+(async () => {
+  const links = document.querySelectorAll('a.download[data-platform="mac"]');
+  if (!links.length || !window.fetch) return;
+  const newer = (a, b) => {
+    const x = a.split('.').map(Number), y = b.split('.').map(Number);
+    for (let i = 0; i < 3; i++) if (x[i] !== y[i]) return x[i] > y[i];
+    return false;
+  };
+  try {
+    const response = await fetch('https://api.github.com/repos/DenK0-UA/Svitlyk/releases?per_page=30', { headers: { Accept: 'application/vnd.github+json' } });
+    if (!response.ok) return;
+    let best = null;
+    for (const release of await response.json()) {
+      if (release.draft || release.prerelease) continue;
+      for (const asset of release.assets || []) {
+        const match = /^Svitlyk-macOS-(\d+\.\d+\.\d+)\.zip$/.exec(asset.name || '');
+        const url = asset.browser_download_url || '';
+        if (!match || !url.startsWith('https://github.com/DenK0-UA/Svitlyk/releases/download/')) continue;
+        if (!best || newer(match[1], best.version)) best = { version: match[1], url, file: asset.name };
+      }
+    }
+    if (!best) return;
+    links.forEach(link => { link.href = best.url; link.dataset.file = best.file; });
+    document.querySelectorAll('[data-mac-file]').forEach(el => { el.textContent = best.file; });
+  } catch { /* offline or rate-limited: keep the link from the page */ }
+})();

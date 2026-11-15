@@ -6,11 +6,11 @@
 
 <a href="https://github.com/DenK0-UA/Svitlyk/releases/latest/download/Svitlyk.exe"><img src="assets/download.svg" width="320" alt="Завантажити Світлик для Windows"></a>
 &nbsp;
-<a href="https://github.com/DenK0-UA/Svitlyk/releases/download/macos-v1.0.0/Svitlyk-macOS-1.0.0.zip"><img src="assets/download-mac.svg" width="320" alt="Завантажити Світлик для Mac"></a>
+<a href="https://denk0-ua.github.io/Svitlyk/mac/"><img src="assets/download-mac.svg" width="320" alt="Завантажити Світлик для Mac"></a>
 
-**Windows 10 / 11** — один EXE, без інсталятора · **Mac** з M1 і новішими, macOS 26 і новіша
+**Windows 10 / 11** · **Mac** з M1 і новішими, macOS 26 і новіша
 
-[Сайт Світлика](https://denk0-ua.github.io/Svitlyk/) · [Усі версії та зміни](https://github.com/DenK0-UA/Svitlyk/releases) · [Зворотний зв’язок](https://t.me/DenK0_UA)
+[Сайт Світлика](https://denk0-ua.github.io/Svitlyk/) · [Світлик для Mac](https://denk0-ua.github.io/Svitlyk/mac/) · [Усі версії та зміни](https://github.com/DenK0-UA/Svitlyk/releases) · [Зворотний зв’язок](https://t.me/DenK0_UA)
 
 <br>
 
@@ -53,7 +53,7 @@
 
 **Windows.** Завантажте **Svitlyk.exe**, покладіть його в постійну папку, запустіть і виберіть свою адресу. Нові версії Світлик запропонує сам.
 
-**Mac.** Завантажте ZIP, відкрийте його й перетягніть Світлик у «Програми». Перший запуск потребує однієї команди в Терміналі — [ось як це зробити](https://github.com/DenK0-UA/Svitlyk/releases/tag/macos-v1.0.0), це хвилина. Далі все працює саме.
+**Mac.** Завантажте ZIP зі [сторінки для Mac](https://denk0-ua.github.io/Svitlyk/mac/), відкрийте його й перетягніть Світлик у «Програми». Перший запуск потребує однієї команди в Терміналі — [ось як це зробити](https://denk0-ua.github.io/Svitlyk/mac/#install). Далі все працює саме.
 
 <sub>Світлик показує плановий графік і повідомлення ДТЕК. Фактичні відключення можуть відрізнятися.</sub>
 
