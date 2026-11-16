@@ -103,7 +103,7 @@ stateSwitch.addEventListener('click', () => {
   document.querySelector('#system-clock').textContent = isOff ? '11:35' : '09:35';
   document.querySelector('#timeline-marker').style.left = isOff ? '48.3%' : '40%';
   document.querySelector('#timeline-past').style.width = isOff ? '48.3%' : '40%';
-  document.querySelector('#demo-note').textContent = isOff ? 'Сіра лампочка — за графіком зараз немає світла.' : 'Тут — приклад графіка. Свій графік побачиш у застосунку, коли вкажеш адресу.';
+  document.querySelector('#demo-note').textContent = isOff ? 'Сіра лампочка — за графіком зараз немає світла.' : 'Тут — приклад графіка. Свій графік побачите в застосунку, коли вкажете адресу.';
   setPopup(true);
   trackEvent('demo_interaction', { demo_action: 'state_change', demo_state: isOff ? 'off' : 'on' });
 });
